@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create Assignment</h2>
+        <form id="createAssignmentForm">
+            <label for="assignmentTitle">Title:</label>
+            <input type="text" id="assignmentTitle" name="assignmentTitle" required>
+            <label for="assignmentDescription">Description:</label>
+            <textarea id="assignmentDescription" name="assignmentDescription" required></textarea>
+            <label for="assignmentDeadline">Deadline:</label>
+            <input type="date" id="assignmentDeadline" name="assignmentDeadline" required>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
