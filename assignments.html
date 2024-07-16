@@ -22,14 +22,30 @@
         <h1>Learning Management System</h1>
         <body>
             <div class="container">
-
                 <h3>Submit Assignment</h3>
-                
+            
                 <!-- Provide a direct link to the external upload page -->
                 <a href="https://dms.uom.lk/s/NxQWfYt4pyXk35X">
                     <button type="button">Upload Your Assignment Here</button>
-                </a>
+                </a></div>
+            <div> 
+                <h3>Save Assignemnt with ID</h3>
+                <!-- Save button -->
+                <button type="button" id="saveButton">Save</button>
             </div>
+            
+            <script>
+                // JavaScript to handle the "Save" button click event
+                document.getElementById('saveButton').addEventListener('click', function() {
+                    // Log the student ID or name to the console (for demo purposes)
+                    // You might want to replace this with an actual save logic to your backend
+                    console.log("Student has clicked the save button");
+            
+                    // Optionally, display an alert to the student
+                    alert("Assignment Saved Succesfully with MT001.");
+                });
+            </script>
+            
     </section>
 
     <footer>
