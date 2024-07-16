@@ -28,23 +28,28 @@
                 <a href="https://dms.uom.lk/s/NxQWfYt4pyXk35X">
                     <button type="button">Upload Your Assignment Here</button>
                 </a></div>
-            <div class="container"> 
-                <h3>Save Assignemnt with ID</h3>
-                <!-- Save button -->
-                <button type="button" id="saveButton">Save</button>
-            </div>
-            
-            <script>
-                // JavaScript to handle the "Save" button click event
-                document.getElementById('saveButton').addEventListener('click', function() {
-                    // Log the student ID or name to the console (for demo purposes)
-                    // You might want to replace this with an actual save logic to your backend
-                    console.log("Student has clicked the save button");
-            
-                    // Optionally, display an alert to the student
-                    alert("Assignment Saved Succesfully with MT001.");
-                });
-            </script>
+                <div class="container"> 
+                    <h3>Save Assignment with ID</h3>
+                    
+                    <!-- Save button -->
+                    <button type="button" id="saveButton">Save</button>
+                    
+                    <!-- Message container -->
+                    <div id="messageContainer" style="margin-top: 10px; color: green;"></div>
+                </div>
+                
+                <script>
+                    // JavaScript to handle the "Save" button click event
+                    document.getElementById('saveButton').addEventListener('click', function() {
+                        // Log the student ID or name to the console (for demo purposes)
+                        // You might want to replace this with an actual save logic to your backend
+                        console.log("Student has clicked the save button");
+                
+                        // Display the success message on the page
+                        document.getElementById('messageContainer').textContent = "Assignment Saved Successfully with MT001.";
+                    });
+                </script>
+                
             
     </section>
 
