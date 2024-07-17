@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles/page.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .user-info {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-info img {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .user-info:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">LMS</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="user-info">
+                    <img src="user-photo.png" alt="User Photo">
+                    <div class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a href="logout.html">Sign Out</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <h1>Welcome, [User's Name]</h1>
+        <p>Select a class to view assignments and other details.</p>
+        <!-- Content for class selection and other features -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Learning Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
