@@ -29,9 +29,10 @@
         }
         .search-bar {
             margin: 20px 0;
+            display: flex;
+            gap: 1000px;
         }
-        .search-bar input {
-            width: 100%;
+        .search-bar input, .search-bar select {
             padding: 8px;
             font-size: 16px;
         }
@@ -58,59 +59,43 @@
         <h1>Learning Management System</h1>
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search for names or IDs...">
+            <select id="testSelect">
+                <option value="test1">Test 1</option>
+                <option value="test2">Test 2</option>
+                <option value="test3">Test 3</option>
+                <option value="test4">Test 4</option>
+                <option value="test5">Test 5</option>
+                <option value="test6">Test 6</option>
+                <option value="test7">Test 7</option>
+                <option value="test8">Test 8</option>
+                <option value="test9">Test 9</option>
+                <option value="test10">Test 10</option>
+            </select>
         </div>
         <table id="resultsTable">
             <thead>
                 <tr>
                     <th>Student ID</th>
                     <th>Name</th>
-                    <th>Test 1</th>
-                    <th>Test 2</th>
-                    <th>Test 3</th>
-                    <th>Test 4</th>
-                    <th>Test 5</th>
-                    <th>Test 6</th>
-                    <th>Test 7</th>
-                    <th>Test 8</th>
-                    <th>Test 9</th>
-                    <th>Test 10</th>
+                    <th>School</th>
+                    <th id="testColumnHeader">Test 1</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Data rows will be inserted here -->
-            </tbody>
             <tbody>
                 <tr>
                     <td>12345</td>
                     <td>John Doe</td>
-                    <td>85</td>
-                    <td>90</td>
-                    <td>78</td>
-                    <td>88</td>
-                    <td>92</td>
-                    <td>80</td>
-                    <td>95</td>
-                    <td>84</td>
-                    <td>91</td>
-                    <td>87</td>
+                    <td>School A</td>
+                    <td data-test1="85" data-test2="90" data-test3="78" data-test4="88" data-test5="92" data-test6="80" data-test7="95" data-test8="84" data-test9="91" data-test10="87">85</td>
                 </tr>
                 <tr>
                     <td>67890</td>
                     <td>Jane Smith</td>
-                    <td>82</td>
-                    <td>89</td>
-                    <td>91</td>
-                    <td>85</td>
-                    <td>93</td>
-                    <td>88</td>
-                    <td>84</td>
-                    <td>90</td>
-                    <td>86</td>
-                    <td>92</td>
+                    <td>School B</td>
+                    <td data-test1="82" data-test2="89" data-test3="91" data-test4="85" data-test5="93" data-test6="88" data-test7="84" data-test8="90" data-test9="86" data-test10="92">82</td>
                 </tr>
                 <!-- Add more rows as needed -->
             </tbody>
-            
         </table>
     </section>
 
@@ -149,6 +134,20 @@
                     const matches = cells.some(cell => cell.innerText.toLowerCase().includes(filter));
                     row.style.display = matches ? '' : 'none';
                 });
+            });
+
+            // Change test results based on selected test
+            const testSelect = document.getElementById('testSelect');
+            testSelect.addEventListener('change', () => {
+                const selectedTest = testSelect.value;
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    const testCell = row.cells[3];
+                    testCell.innerText = testCell.getAttribute(`data-${selectedTest}`);
+                });
+                const selectedTestIndex = testSelect.selectedIndex;
+                const selectedTestName = testSelect.options[selectedTestIndex].text;
+                document.getElementById('testColumnHeader').innerText = selectedTestName;
             });
         });
     </script>
