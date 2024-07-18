@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Management System</title>
+    <link rel="stylesheet" href="styles/page.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            cursor: pointer;
+        }
+        th.sort-asc::after {
+            content: " 🔽";
+        }
+        th.sort-desc::after {
+            content: " 🔼";
+        }
+        .search-bar {
+            margin: 20px 0;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">LMS</div>
+            <ul class="nav-links">
+                <li class="user-info">
+                    <img src="user-photo.jpg" alt="User Photo">
+                    <div class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a href="index_user.html">Home</a>
+                        <a href="index.html">Sign Out</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <h1>Learning Management System</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for names or IDs...">
+        </div>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Test 1</th>
+                    <th>Test 2</th>
+                    <th>Test 3</th>
+                    <th>Test 4</th>
+                    <th>Test 5</th>
+                    <th>Test 6</th>
+                    <th>Test 7</th>
+                    <th>Test 8</th>
+                    <th>Test 9</th>
+                    <th>Test 10</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows will be inserted here -->
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>12345</td>
+                    <td>John Doe</td>
+                    <td>85</td>
+                    <td>90</td>
+                    <td>78</td>
+                    <td>88</td>
+                    <td>92</td>
+                    <td>80</td>
+                    <td>95</td>
+                    <td>84</td>
+                    <td>91</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td>67890</td>
+                    <td>Jane Smith</td>
+                    <td>82</td>
+                    <td>89</td>
+                    <td>91</td>
+                    <td>85</td>
+                    <td>93</td>
+                    <td>88</td>
+                    <td>84</td>
+                    <td>90</td>
+                    <td>86</td>
+                    <td>92</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+            
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Learning Management System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sortable columns
+            const table = document.getElementById('resultsTable');
+            const headers = table.querySelectorAll('th');
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const index = Array.from(headers).indexOf(header);
+                    const rows = Array.from(table.querySelectorAll('tbody tr'));
+                    const isAscending = header.classList.contains('sort-asc');
+                    rows.sort((rowA, rowB) => {
+                        const cellA = rowA.children[index].innerText;
+                        const cellB = rowB.children[index].innerText;
+                        return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+                    });
+                    rows.forEach(row => table.querySelector('tbody').appendChild(row));
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+                    header.classList.add(isAscending ? 'sort-desc' : 'sort-asc');
+                });
+            });
+
+            // Search filter
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', () => {
+                const filter = searchInput.value.toLowerCase();
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    const cells = Array.from(row.cells);
+                    const matches = cells.some(cell => cell.innerText.toLowerCase().includes(filter));
+                    row.style.display = matches ? '' : 'none';
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>
