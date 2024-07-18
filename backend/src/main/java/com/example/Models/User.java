@@ -10,13 +10,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "test_result")
-public class TestResult {
+@Document(collection = "user_details")
+public class User {
     @Id
-    private String id;
-    private String name;
-    private String school;
-    private int[] testScores;
+    private String username;
+    private Long id;
+    private String password;
+    private String role;
 
     // Getters and setters
 }
